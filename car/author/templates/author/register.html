@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <link rel="shortcut icon" href="{% static 'img_icon.png' %}" type="image/x-icon">
+    <title>{% block title %}Register Page{% endblock title %}</title>
+    
+    <h1 class="text-center text-info">{{ type }} Page</h1>
+    
+    <form style="width: 50%; margin: auto;" method="post" novalidate>
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                {{ field|as_crispy_field }}
+                <div class="text-danger">{{ field.errors|striptags }}</div>
+            </div>
+        {% endfor %}
+        
+        <div class="text-center">
+            <button class="btn btn-warning text-white mx-2" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock content %}
