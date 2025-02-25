@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Classes</title>
+</head>
+<body>
+    <h2>Available Classes</h2>
+    <ul>
+        {% for class in classes %}
+            <li>
+                {{ class.name }} - {{ class.instructor }} - {{ class.schedule }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

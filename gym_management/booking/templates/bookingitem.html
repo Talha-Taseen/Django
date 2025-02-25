@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookings</title>
+</head>
+<body>
+    <h2>My Booked Classes</h2>
+    <ul>
+        {% for booking in bookings %}
+            <li>{{ booking.fitness_class.name }} - {{ booking.fitness_class.schedule }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'class_list' %}">Back to Classes</a>
+</body>
+</html>

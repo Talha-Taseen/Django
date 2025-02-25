@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Classes</title>
+</head>
+<body>
+    <h2>Available Classes</h2>
+    <ul>
+        {% for class in classes %}
+            <li>
+                {{ class.name }} - {{ class.instructor }} - {{ class.schedule }}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'book_class' class.id %}">Book</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'my_bookings' %}">My Bookings</a>
+</body>
+</html>

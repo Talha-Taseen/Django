@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Membership Plans</title>
+</head>
+<body>
+    <h2>Available Membership Plans</h2>
+    <ul>
+        {% for plan in plans %}
+            <li>
+                {{ plan.name }} - {{ plan.get_duration_display }} - ${{ plan.price }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
